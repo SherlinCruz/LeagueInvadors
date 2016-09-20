@@ -3,18 +3,18 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-public class LeagueInvador implements KeyListener {
-	final int width = 500;
-	final int height = 800;
+public class LeagueInvader implements KeyListener {
+	final static int width = 500;
+	final static int height = 800;
 	JFrame frame;
 	GamePanel gamepanel;
 
 	public static void main(String[] args) {
-		LeagueInvador LeagueInvador = new LeagueInvador();
+		LeagueInvader LeagueInvador = new LeagueInvader();
 
 	}
 
-	LeagueInvador() {
+	LeagueInvader() {
 		frame = new JFrame();
 		gamepanel = new GamePanel();
 		frame.addKeyListener(gamepanel);
