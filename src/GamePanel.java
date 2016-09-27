@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,10 +15,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
+	Font titleFont;
+	Font enterFont;
+	Font spaceFont;
+	Font Endtitle;
+	
+	Rocketship rocket;
 
 	GamePanel() {
 
 		timer = new Timer(1000 / 6, this);
+		titleFont = new Font("time new roman", Font.PLAIN, 48);
+		enterFont = new Font("time new roman", Font.PLAIN, 20);
+		spaceFont = new Font("time new roman", Font.PLAIN, 20);
+		Endtitle = new Font("time new roman", Font.PLAIN, 20);
+		rocket = new Rocketship();
 
 	}
 
@@ -50,30 +62,44 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void drawMenuState(Graphics g) {
-		
-		g.setColor(Color.BLUE);
-		g.fillRect(0, 0, LeagueInvader.width,LeagueInvader.height);
+
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, LeagueInvader.width, LeagueInvader.height);
+
+		g.setFont(titleFont);
+		g.setColor(Color.pink);
+		g.drawString("League Invaders", 75, 100);
+
+		g.setFont(enterFont);
+		g.setColor(Color.white);
+		g.drawString("Press ENTER to start ", 110, 200);
+
+		g.setFont(spaceFont);
+		g.setColor(Color.white);
+		g.drawString("Press SPACE for intructions", 90, 300);
 
 	}
 
 	void drawGameState(Graphics g) {
 
 		g.setColor(Color.black);
-		g.fillRect(0, 0, LeagueInvader.width, LeagueInvader.height);    
-
+		g.fillRect(0, 0, LeagueInvader.width, LeagueInvader.height);
 
 	}
 
 	void drawEndState(Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
+		g.setFont(Endtitle);
+		g.drawString("You lost ! To bad ", 100, 100);
+		g.setColor(Color.pink);
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
@@ -81,15 +107,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (currentState == END_STATE) {
 			updateEndState();
 		}
-repaint();
+		repaint();
 
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-
-		//System.out.println("Console");
 
 	}
 
@@ -104,7 +128,7 @@ repaint();
 				currentState = GAME_STATE;
 
 			}
-			
+
 		}
 
 	}
@@ -113,7 +137,7 @@ repaint();
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-		//System.out.println("Console");
+		// System.out.println("Console");
 
 	}
 
