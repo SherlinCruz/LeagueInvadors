@@ -9,15 +9,15 @@ int height;
 
 void update(){
 
+	
+	
+	
+	
 }
 void draw(Graphics g)
 {
 
-	}
-void RocketShip(){
-	
 }
-
 
 }
 

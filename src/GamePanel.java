@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font enterFont;
 	Font spaceFont;
 	Font Endtitle;
-	
+
 	Rocketship rocket;
 
 	GamePanel() {
@@ -29,7 +29,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		enterFont = new Font("time new roman", Font.PLAIN, 20);
 		spaceFont = new Font("time new roman", Font.PLAIN, 20);
 		Endtitle = new Font("time new roman", Font.PLAIN, 20);
-		rocket = new Rocketship();
+		rocket = new Rocketship(250, 700, 50, 50);
+		
 
 	}
 
@@ -54,7 +55,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
-
+		rocket.update();
+		rocket.draw(getGraphics());
+		
 	}
 
 	void updateEndState() {
@@ -68,15 +71,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		g.setFont(titleFont);
 		g.setColor(Color.pink);
-		g.drawString("League Invaders", 75, 100);
+		g.drawString("League Invaders", 65, 100);
 
 		g.setFont(enterFont);
 		g.setColor(Color.white);
-		g.drawString("Press ENTER to start ", 110, 200);
+		g.drawString("Press ENTER to start ", 130, 200);
 
 		g.setFont(spaceFont);
 		g.setColor(Color.white);
-		g.drawString("Press SPACE for intructions", 90, 300);
+		g.drawString("Press SPACE for intructions", 100, 300);
 
 	}
 
@@ -84,6 +87,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		g.setColor(Color.black);
 		g.fillRect(0, 0, LeagueInvader.width, LeagueInvader.height);
+		rocket.draw(g);
+		
 
 	}
 
@@ -124,12 +129,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("Console");
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			if (currentState > MENU_STATE) {
+			if (currentState == MENU_STATE) {
 				currentState = GAME_STATE;
 
 			}
-
 		}
+		
+		
 
 	}
 

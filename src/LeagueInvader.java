@@ -27,8 +27,9 @@ public class LeagueInvader implements KeyListener {
 		frame.add(gamepanel);
 		frame.setVisible(true);
 		frame.setSize(width, height);
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		gamepanel.startGame();
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		
 	}
 
 	@Override
