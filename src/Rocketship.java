@@ -10,10 +10,10 @@ public class Rocketship extends GameObject {
 
 	Rocketship(int i, int j, int k, int l) {
 
-		x = 0;
-		y = 750;
-		width = 40;
-		height = 36;
+		x = i;
+		y = j;
+		width = k;
+		height = l;
 		int speed = 5;
 
 	}

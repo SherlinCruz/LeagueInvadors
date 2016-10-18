@@ -133,7 +133,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 
+			manager.addObject(new Projectile(rocket.x, rocket.y, 10, 10));
+			
+		}
 	}
 
 	@Override
