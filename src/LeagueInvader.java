@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
@@ -18,7 +19,6 @@ public class LeagueInvader implements KeyListener {
 		frame = new JFrame();
 		gamepanel = new GamePanel();
 		frame.addKeyListener(gamepanel);
-
 		setup();
 
 	}
@@ -31,7 +31,7 @@ public class LeagueInvader implements KeyListener {
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		
 	}
-
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
